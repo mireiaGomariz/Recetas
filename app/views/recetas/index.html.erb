@@ -1,1 +1,7 @@
-<p>Hola</p>
+<h1>Recetas</h1>
+<% @recetas.each do |rec| %>
+  <h2><%= rec.titulo %></h2>
+  <!-- <p><small><%= rec.created_at.strftime("%F") %></small></p> -->
+  <p><%= rec.ingredientes %></p>
+  <p><%= rec.elaboracion %></p>
+<% end %>
