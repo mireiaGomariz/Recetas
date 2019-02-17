@@ -4,6 +4,7 @@ class RecetasController < ApplicationController
   end
 
   def show
+    @receta = Receta.find(params[:id])
   end
 
   def new
