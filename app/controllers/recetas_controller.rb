@@ -36,10 +36,10 @@ class RecetasController < ApplicationController
       end
   end
 
-  def destroy
+  def delete
     @receta = Receta.find(params[:id])
     @receta.destroy
-    redirect_to receta_path, notice: "Receta eliminado correctamente"
+    redirect_to action: "index", notice: "Receta eliminado correctamente"
 
   end
 

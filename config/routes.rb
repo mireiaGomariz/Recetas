@@ -12,7 +12,7 @@ Rails.application.routes.draw do
  get 'recetas/edit/:id', to: "recetas#edit", as: 'edit_receta'
  patch 'recetas/update/:id', to: "recetas#update", as: 'update_recetas'
 
- delete 'recetas/delete/:id', to: "recetas#delete", as: 'delete_receta'
+ delete 'recetas/delete/:id', to: "recetas#index", as: 'delete_receta'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
