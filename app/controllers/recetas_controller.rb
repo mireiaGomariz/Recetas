@@ -8,7 +8,8 @@ class RecetasController < ApplicationController
   end
 
   def new
-    @receta = Receta.new
+    @boton = "Crear"
+    @receta = current_user.recetas.build
   end
 
   def create
@@ -20,16 +21,31 @@ class RecetasController < ApplicationController
     end
   end
 
-  def update
-
+  def edit
+    @boton = "Modificar"
+    @receta = Receta.find(params[:id])
   end
 
-  def delate
+  def update
+    @receta = Receta.find(params[:id])
+      if @receta.update(receta_params)
+        flash[:notice] = "Receta modificada correctamente"
+        redirect_to @receta
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    @receta = Receta.find(params[:id])
+    @receta.destroy
+    redirect_to receta_path, notice: "Receta eliminado correctamente"
 
   end
 
   def receta_params
     params.require(:receta).permit(:titulo, :ingredientes, :elaboracion)
   end
+
 
 end

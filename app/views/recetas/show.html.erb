@@ -1,7 +1,10 @@
 <h1><%= @receta.titulo %></h1>
 <h2><%= @receta.user_name %></h2>
 
-
-
 <p><%= @receta.ingredientes %></p>
 <p><%= @receta.elaboracion %></p>
+
+<% if user_signed_in? %>
+  <%= link_to "Editar", edit_receta_path(@receta) %>
+  <%= link_to "Eliminar", delete_receta_path(@receta) ,  method: :delete, data: {confirm: "¿Seguro que quieres eliminar la receta?"} %>
+<% end %>
