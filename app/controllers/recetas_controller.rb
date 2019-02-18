@@ -30,7 +30,7 @@ class RecetasController < ApplicationController
     @receta = Receta.find(params[:id])
       if @receta.update(receta_params)
         flash[:notice] = "Receta modificada correctamente"
-        redirect_to action: "index"
+        redirect_to action: "show"
       else
         render 'edit'
       end
